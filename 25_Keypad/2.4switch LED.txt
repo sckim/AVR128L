@@ -1,0 +1,73 @@
+#include <avr/io.h>
+
+volatile unsigned char LED;
+
+void delay(unsigned long i)
+{
+   while(--i);
+}
+
+void key_scan(void)
+{
+   unsigned char KEY;
+   KEY = 0;
+   KEY = PIND;
+   KEY &= 0x0f;
+   LED=0;
+   if(KEY != 0x0f)
+   {
+      KEY = 0;
+      KEY = PIND;
+      KEY &= 0x0f;
+	  if(KEY != 0x0f)
+	  {
+		  switch(KEY)
+		  {
+		  case 0x07 : LED = 1;  break;
+		  case 0x0B : LED = 2;  break;
+		  case 0x0D : LED = 3;  break;
+		  default   : LED = 4;
+		  }
+	  }
+   }
+}
+
+int main(void)
+{
+	unsigned char KEY_OUT;
+	DDRA = 0xff;
+	PORTA = 0xff;
+	DDRD = 0xf0;
+
+	while(1)
+	{
+		delay(10000);
+		KEY_OUT = 0xb0;
+		PORTD = KEY_OUT;
+		delay(1000);
+		key_scan();
+		if(LED == 1) PORTA = 0xfe;
+		else if(LED == 2) PORTA = 0xf0;
+		else if(LED == 3) PORTA = 0x80;
+		else if(LED == 4) PORTA = 0xff;
+		delay(10000);
+		KEY_OUT = 0xd0;
+		PORTD = KEY_OUT;
+		delay(1000);
+		key_scan();
+		if(LED == 1) PORTA = 0xfc;
+		else if(LED == 2) PORTA = 0xe0;
+		else if(LED == 3) PORTA = 0x00;
+		else if(LED == 4) PORTA = 0x55;
+
+		delay(10000);
+		KEY_OUT = 0xe0;
+		PORTD = KEY_OUT;
+		delay(1000);
+		key_scan();
+		if(LED == 1) PORTA = 0xf8;
+		else if(LED == 2) PORTA = 0xc0;
+		else if(LED == 3) PORTA = 0xaa;
+		else if(LED == 4) PORTA = 0xff;
+	}
+}
