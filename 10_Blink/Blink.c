@@ -12,7 +12,7 @@
 //
 // 아래와 같은 warning을 없애기 위해서는 소스 크드에
 // F_CPU를 선언해 주거나, 환경설정에서 선언해 준다.
-#define F_CPU	14745600
+// #define F_CPU	14745600
 
 #include <avr/io.h>
 #include <util/delay.h>
