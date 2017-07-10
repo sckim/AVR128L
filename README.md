@@ -15,6 +15,7 @@ Microcontroller AVR128을 이용한 예제입니다.
 ### 3주차: 범용 출력
 + LED On
 + LED On/Off
++ MIDAS kit 이용법
 ### 4주차: 범용 입력 
 + Push button
 + Debounce
@@ -31,6 +32,8 @@ Microcontroller AVR128을 이용한 예제입니다.
 ### 13주차: I2C
 ### 14주차: WatchDog
 ### 15주차: Timer (PWM)
+### 16주차: 키트 직접 만들어보기
++ 부트로더
 
 ## 참고자료
 + [BerkeleyX: EE40LX Electronic Interfaces](https://courses.edx.org/courses/course-v1:BerkeleyX+EE40LX+2T2015/info)
