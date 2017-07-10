@@ -15,6 +15,7 @@ Microcontroller AVR128을 이용한 예제입니다.
 ### 3주차: 범용 출력
 + LED On
 + LED On/Off
++ MIDAS kit 이용법
 ### 4주차: 범용 입력 
 + Push button
 + Debounce
