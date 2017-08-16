@@ -1,6 +1,6 @@
 /*************************************
-* Purpose: Timer0À» ÀÌ¿ëÇÏ¿© 1ÃÊ¸¶´Ù overflow
-* interrupt¿¡ ÀÇÇÑ LED Shift
+* Purpose: Timer0ì„ ì´ìš©í•˜ì—¬ 1ì´ˆë§ˆë‹¤ overflow
+* interruptì— ì˜í•œ LED Shift
 *
 * TIMSK
 * TCCR1B
@@ -11,7 +11,7 @@
 
 // from TCNT = (CS / 14745600 ) * (256-x) =10msec
 // x = time * (14745600/CS)
-#define cDelay 144+256
+#define cDelay 144
 
 unsigned char FND[10]= {0XC0, 0XF9, 0XA4, 0XB0, 0X99, 0X92, 0X82, 0XD8, 0X80, 0X90};
 
@@ -32,7 +32,7 @@ ISR (TIMER0_OVF_vect)
 
 	PORTF = FND[msec%10];
 
-	TCNT0 = 0xFF-cDelay+1;    //ÃÊ±â°ª
+	TCNT0 = 0xFF-cDelay+1;    //ì´ˆê¸°ê°’
 }
 
 int main(void)
@@ -45,9 +45,9 @@ int main(void)
 	
 	cli();
 
-	TIMSK |= (1<<TOIE0);    // Timer0 ¿À¹öÇÃ·Î ÀÎÅÍ·´Æ® ¿¡ÀÌºí
+	TIMSK |= (1<<TOIE0);    // Timer0 ì˜¤ë²„í”Œë¡œ ì¸í„°ëŸ½íŠ¸ ì—ì´ë¸”
 	
-	// Normal, 1/1024 for ÇÁ¸®½ºÄÉÀÏ
+	// Normal, 1/1024 for í”„ë¦¬ìŠ¤ì¼€ì¼
 	TCCR0 |= (1<<CS02);
 	TCCR0 |= (1<<CS01);
 	TCCR0 |= (1<<CS00);
