@@ -1,3 +1,11 @@
+/*************************************
+* Purpose: Understand GPIO registers
+*
+* DDRn
+* PORTn
+* PINn
+*************************************/
+
 #include <avr/io.h>
 #include <util/delay.h>
 
@@ -21,6 +29,6 @@ int main(void) {
 		else
 			PORTB = 0xFF;
 
-		_delay_ms(10);  // 500ms Áö¿¬½ÃÅ´
+		_delay_ms(10);  // 500ms ÃÃ¶Â¿Â¬Â½ÃƒÃ…Â´
 	}
 }
