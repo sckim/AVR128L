@@ -37,10 +37,10 @@
 								<option id="de.innot.avreclipse.cppcompiler.option.optimize.2083106516" name="Optimization Level" superClass="de.innot.avreclipse.cppcompiler.option.optimize"/>
 							</tool>
 							<tool id="de.innot.avreclipse.tool.linker.winavr.app.debug.772895260" name="AVR C Linker" superClass="de.innot.avreclipse.tool.linker.winavr.app.debug">
-								<option id="de.innot.avreclipse.linker.option.libs.1095494890" superClass="de.innot.avreclipse.linker.option.libs" useByScannerDiscovery="false" valueType="libs">
+								<option id="de.innot.avreclipse.linker.option.libs.1095494890" name="Libraries (-l)" superClass="de.innot.avreclipse.linker.option.libs" useByScannerDiscovery="false" valueType="libs">
 									<listOptionValue builtIn="false" value="printf_flt"/>
 								</option>
-								<option id="de.innot.avreclipse.linker.option.otherlinkargs.566736715" superClass="de.innot.avreclipse.linker.option.otherlinkargs" useByScannerDiscovery="false" value="-uvfprintf" valueType="string"/>
+								<option id="de.innot.avreclipse.linker.option.otherlinkargs.566736715" name="Other Arguments" superClass="de.innot.avreclipse.linker.option.otherlinkargs" useByScannerDiscovery="false" value="-uvfprintf" valueType="string"/>
 								<inputType id="de.innot.avreclipse.tool.linker.input.430824355" name="OBJ Files" superClass="de.innot.avreclipse.tool.linker.input">
 									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
 									<additionalInput kind="additionalinput" paths="$(LIBS)"/>
