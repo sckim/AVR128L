@@ -6,7 +6,7 @@
 #define strWelcome1	"Microcontroller"
 
 void putch(unsigned char data) {
-	//Àü¼ÛÁØºñ°¡ µÉ ¶§±îÁö ´ë±â
+	//ì „ì†¡ì¤€ë¹„ê°€ ë  ë•Œê¹Œì§€ ëŒ€ê¸°
 	while ((UCSR0A & (1 << UDRE0)) == 0)
 		;
 	// while(!(UCSR0A & 0x20)) ;
@@ -14,24 +14,27 @@ void putch(unsigned char data) {
 	UDR0 = data;
 }
 
-int printfStr(char data, FILE * stream) {
-	while (!(UCSR0A & (1 << UDRE0)))
+void printfStr(char data, FILE * stream) {
+//void putch(unsigned char data) {
+	//ì „ì†¡ì¤€ë¹„ê°€ ë  ë•Œê¹Œì§€ ëŒ€ê¸°
+	while ((UCSR0A & (1 << UDRE0)) == 0)
 		;
+	// while(!(UCSR0A & 0x20)) ;
+
 	UDR0 = data;
-	return 0;
 }
 
 unsigned char getch() {
 	unsigned char data;
 
-	//µ¥ÀÌÅÍ¸¦ ¹ŞÀ» ¶§±îÁö ´ë±â
+	//ë°ì´í„°ë¥¼ ë°›ì„ ë•Œê¹Œì§€ ëŒ€ê¸°
 	while ((UCSR0A & (1 << RXC0)) == 0)
 		;
 
 	//while (bit_is_set(UCSR0A,RXC0);
 	//while (!(UCSR0A & 0x80);
 
-	// Receiver register¿¡ º¸³»°íÀÚ ÇÏ´Â µ¥ÀÌÅÍ¸¦ ÀúÀå
+	// Receiver registerì— ë³´ë‚´ê³ ì í•˜ëŠ” ë°ì´í„°ë¥¼ ì €ì¥
 	data = UDR0;
 
 	return data;
@@ -42,39 +45,39 @@ unsigned char getch() {
 
 void uart_init(unsigned long iBaudrate) {
 
-	// UCSRnA ·¹Áö½ºÅÍ¸¦ ÃÊ±âÈ­½ÃÅ²´Ù.
-	// 0¹øÂ° ºñÆ®, Áï MPCMn ¸¦ 0À¸·Î ¼¼Æ® (USARTnÀ» ¸ÖÆ¼ ÇÁ·Î¼¼¼­ Åë½Å¸ğµå·Î ¼³Á¤)
+	// UCSRnA ë ˆì§€ìŠ¤í„°ë¥¼ ì´ˆê¸°í™”ì‹œí‚¨ë‹¤.
+	// 0ë²ˆì§¸ ë¹„íŠ¸, ì¦‰ MPCMn ë¥¼ 0ìœ¼ë¡œ ì„¸íŠ¸ (USARTnì„ ë©€í‹° í”„ë¡œì„¸ì„œ í†µì‹ ëª¨ë“œë¡œ ì„¤ì •)
 	UCSR0A = 0x00;
 
-	// UCSRnB ·¹Áö½ºÅÍ¸¦ ÀÌ¿ëÇÏ¿© ¼Û½Å ¹× ¼ö½Å »ç¿ë¼³Á¤À» ÇÑ´Ù.
+	// UCSRnB ë ˆì§€ìŠ¤í„°ë¥¼ ì´ìš©í•˜ì—¬ ì†¡ì‹  ë° ìˆ˜ì‹  ì‚¬ìš©ì„¤ì •ì„ í•œë‹¤.
 	// Rx, Tx enable
 	UCSR0B = (1 << RXEN0) | (1 << TXEN0);
 
-	// 3¹øÂ°, 4¹øÂ° ºñÆ® ¼¼Æ® Áï, TXENn (USARTn¸ğµâÀÇ ¼Û½ÅºÎ µ¿ÀÛ enable) RXENn (USARTn¸ğµâÀÇ ¼ö½ÅºÎ µ¿ÀÛ enable)
-	//  2¹ø ºñÆ® UCSZ02 = 0À¸·Î ¼¼Æ®
+	// 3ë²ˆì§¸, 4ë²ˆì§¸ ë¹„íŠ¸ ì„¸íŠ¸ ì¦‰, TXENn (USARTnëª¨ë“ˆì˜ ì†¡ì‹ ë¶€ ë™ì‘ enable) RXENn (USARTnëª¨ë“ˆì˜ ìˆ˜ì‹ ë¶€ ë™ì‘ enable)
+	//  2ë²ˆ ë¹„íŠ¸ UCSZ02 = 0ìœ¼ë¡œ ì„¸íŠ¸
 
-	// UCRnC ·¹Áö½ºÅÍ¸¦ ÀÌ¿ëÇÏ¿© ¸ğµå(µ¿±â/ºñµ¿±â), ÆĞ¸®Æ¼¸ğµå, Á¤ÁöºñÆ®,
-	// Àü¼Û µ¥ÀÌÅÍ ºñÆ®¼ö¸¦ ¼³Á¤ÇÑ´Ù.
-	// ºñµ¿±â ¹æ½Ä, No Parity bit, 1 Stop bit, 8bits
+	// UCRnC ë ˆì§€ìŠ¤í„°ë¥¼ ì´ìš©í•˜ì—¬ ëª¨ë“œ(ë™ê¸°/ë¹„ë™ê¸°), íŒ¨ë¦¬í‹°ëª¨ë“œ, ì •ì§€ë¹„íŠ¸,
+	// ì „ì†¡ ë°ì´í„° ë¹„íŠ¸ìˆ˜ë¥¼ ì„¤ì •í•œë‹¤.
+	// ë¹„ë™ê¸° ë°©ì‹, No Parity bit, 1 Stop bit, 8bits
 	UCSR0C |= (1 << UCSZ01);
 	UCSR0C |= (1 << UCSZ00);
-/*
-	// UBRRnH(L) ·¹Áö½ºÅÍ¸¦ ÀÌ¿ëÇÑ ¼Û¼ö½Å º¸·¹ÀÌÆ® ¼³Á¤
-	UBRR0H = 0x00;
-	switch (iBaudrate) {
-	case 9600:
-		UBRR0L = 95; // 14.7456 MHz -> 9600 bps
-		break;
-	case 19200:
-		UBRR0L = 47; // 14.7456 MHz -> 19200 bps
-		break;
-	case 115200:
-		UBRR0L = 7;  // 14.7456 MHz -> 115200 bps
-		break;
-	default:
-		UBRR0L = 95;
-	}
-	*/
+	/*
+	 // UBRRnH(L) ë ˆì§€ìŠ¤í„°ë¥¼ ì´ìš©í•œ ì†¡ìˆ˜ì‹  ë³´ë ˆì´íŠ¸ ì„¤ì •
+	 UBRR0H = 0x00;
+	 switch (iBaudrate) {
+	 case 9600:
+	 UBRR0L = 95; // 14.7456 MHz -> 9600 bps
+	 break;
+	 case 19200:
+	 UBRR0L = 47; // 14.7456 MHz -> 19200 bps
+	 break;
+	 case 115200:
+	 UBRR0L = 7;  // 14.7456 MHz -> 115200 bps
+	 break;
+	 default:
+	 UBRR0L = 95;
+	 }
+	 */
 	UBRR0H = (BAUD_PRESCALE >> 8);
 	UBRR0L = BAUD_PRESCALE;
 }
@@ -91,6 +94,7 @@ int main() {
 	DDRC = 0x00;
 
 	uart_init(9600UL);
+	stdout = &PrnDevice;
 
 	while (text[i] != '\0') {
 		putch(text[i++]);
@@ -100,11 +104,13 @@ int main() {
 	while (echo[i] != '\0')
 		putch(echo[i++]);
 
-	stdout = &PrnDevice;
+	printf("%s", text);
+	printf("%s", echo);
+
 	i = 0;
 	while (1) {
 		printf("i:%3d  %.3f\r\n", i++, i + 1.1);
-		sprintf(text, "i:%3d  %.3f", i, i + 1.1);
+		//sprintf(text, "i:%3d  %.3f", i, i + 1.1);
 		_delay_ms(1000);
 		if (i > 10)
 			i = 0;
@@ -112,36 +118,3 @@ int main() {
 
 	return 0;
 }
-
-/*
- #include <avr/io.h>
-
- #define USART_BAUDRATE 9600
- #define BAUD_PRESCALE (((F_CPU/(USART_BAUDRATE*16UL)))-1)
-
- int main(void) {
- char recieved_byte;
-
- UCSR0B |= (1 << RXEN0) | (1 << TXEN0);
- UCSR0C |= (1 << UCSZ00) | (1 << UCSZ01);
- UBRR0H = (BAUD_PRESCALE >> 8);
- UBRR0L = BAUD_PRESCALE;
-
- for (;;) {
- // wait until a byte is ready to read
- while (( UCSR0A & (1 << RXC0)) == 0) {
- }
-
- // grab the byte from the serial port
- recieved_byte = UDR0;
-
- // wait until the port is ready to be written to
- while (( UCSR0A & (1 << UDRE0)) == 0) {
- }
-
- // write the byte to the serial port
- UDR0 = recieved_byte;
- }
- return 0; // never reached
-}
-*/
