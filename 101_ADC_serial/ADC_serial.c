@@ -12,7 +12,7 @@
 #define strWelcome1	"Microcontroller"
 
 void putch(unsigned char data) {
-	//¿¸º€¡ÿ∫Ò∞° µ… ∂ß±Ó¡ˆ ¥Î±‚
+	//Ï†ÑÏÜ°Ï§ÄÎπÑÍ∞Ä Îê† ÎïåÍπåÏßÄ ÎåÄÍ∏∞
 	while ((UCSR0A & (1 << UDRE0)) == 0)
 		;
 	// while(!(UCSR0A & 0x20)) ;
@@ -22,7 +22,7 @@ void putch(unsigned char data) {
 
 void printfStr(char data, FILE * stream) {
 //void putch(unsigned char data) {
-	//¿¸º€¡ÿ∫Ò∞° µ… ∂ß±Ó¡ˆ ¥Î±‚
+	//Ï†ÑÏÜ°Ï§ÄÎπÑÍ∞Ä Îê† ÎïåÍπåÏßÄ ÎåÄÍ∏∞
 	while ((UCSR0A & (1 << UDRE0)) == 0)
 		;
 	// while(!(UCSR0A & 0x20)) ;
@@ -33,59 +33,63 @@ void printfStr(char data, FILE * stream) {
 unsigned char getch() {
 	unsigned char data;
 
-	//µ•¿Ã≈Õ∏¶ πﬁ¿ª ∂ß±Ó¡ˆ ¥Î±‚
+	//Îç∞Ïù¥ÌÑ∞Î•º Î∞õÏùÑ ÎïåÍπåÏßÄ ÎåÄÍ∏∞
 	while ((UCSR0A & (1 << RXC0)) == 0)
 		;
 
 	//while (bit_is_set(UCSR0A,RXC0);
 	//while (!(UCSR0A & 0x80);
 
-	// Receiver registerø° ∫∏≥ª∞Ì¿⁄ «œ¥¬ µ•¿Ã≈Õ∏¶ ¿˙¿Â
+	// Receiver registerÏóê Î≥¥ÎÇ¥Í≥†Ïûê ÌïòÎäî Îç∞Ïù¥ÌÑ∞Î•º Ï†ÄÏû•
 	data = UDR0;
 
 	return data;
 }
 
-#define USART_BAUDRATE 9600
+#define USART_BAUDRATE 115200
 #define BAUD_PRESCALE (((F_CPU/(USART_BAUDRATE*16UL)))-1)
 
 void uart_init(unsigned long iBaudrate) {
 
-	// UCSRnA ∑π¡ˆΩ∫≈Õ∏¶ √ ±‚»≠Ω√≈≤¥Ÿ.
-	// 0π¯¬∞ ∫Ò∆Æ, ¡Ô MPCMn ∏¶ 0¿∏∑Œ ºº∆Æ (USARTn¿ª ∏÷∆º «¡∑Œººº≠ ≈ÎΩ≈∏µÂ∑Œ º≥¡§)
+	// UCSRnA Î†àÏßÄÏä§ÌÑ∞Î•º Ï¥àÍ∏∞ÌôîÏãúÌÇ®Îã§.
+	// 0Î≤àÏß∏ ÎπÑÌä∏, Ï¶â MPCMn Î•º 0ÏúºÎ°ú ÏÑ∏Ìä∏ (USARTnÏùÑ Î©ÄÌã∞ ÌîÑÎ°úÏÑ∏ÏÑú ÌÜµÏã†Î™®ÎìúÎ°ú ÏÑ§Ï†ï)
 	UCSR0A = 0x00;
 
-	// UCSRnB ∑π¡ˆΩ∫≈Õ∏¶ ¿ÃøÎ«œø© º€Ω≈ π◊ ºˆΩ≈ ªÁøÎº≥¡§¿ª «—¥Ÿ.
+	// UCSRnB Î†àÏßÄÏä§ÌÑ∞Î•º Ïù¥Ïö©ÌïòÏó¨ ÏÜ°Ïã† Î∞è ÏàòÏã† ÏÇ¨Ïö©ÏÑ§Ï†ïÏùÑ ÌïúÎã§.
 	// Rx, Tx enable
 	UCSR0B = (1 << RXEN0) | (1 << TXEN0);
 
-	// 3π¯¬∞, 4π¯¬∞ ∫Ò∆Æ ºº∆Æ ¡Ô, TXENn (USARTn∏µ‚¿« º€Ω≈∫Œ µø¿€ enable) RXENn (USARTn∏µ‚¿« ºˆΩ≈∫Œ µø¿€ enable)
-	//  2π¯ ∫Ò∆Æ UCSZ02 = 0¿∏∑Œ ºº∆Æ
+	// 3Î≤àÏß∏, 4Î≤àÏß∏ ÎπÑÌä∏ ÏÑ∏Ìä∏ Ï¶â, TXENn (USARTnÎ™®ÎìàÏùò ÏÜ°Ïã†Î∂Ä ÎèôÏûë enable) RXENn (USARTnÎ™®ÎìàÏùò ÏàòÏã†Î∂Ä ÎèôÏûë enable)
+	//  2Î≤à ÎπÑÌä∏ UCSZ02 = 0ÏúºÎ°ú ÏÑ∏Ìä∏
 
-	// UCRnC ∑π¡ˆΩ∫≈Õ∏¶ ¿ÃøÎ«œø© ∏µÂ(µø±‚/∫Òµø±‚), ∆–∏Æ∆º∏µÂ, ¡§¡ˆ∫Ò∆Æ,
-	// ¿¸º€ µ•¿Ã≈Õ ∫Ò∆Æºˆ∏¶ º≥¡§«—¥Ÿ.
-	// ∫Òµø±‚ πÊΩƒ, No Parity bit, 1 Stop bit, 8bits
+	// UCRnC Î†àÏßÄÏä§ÌÑ∞Î•º Ïù¥Ïö©ÌïòÏó¨ Î™®Îìú(ÎèôÍ∏∞/ÎπÑÎèôÍ∏∞), Ìå®Î¶¨Ìã∞Î™®Îìú, Ï†ïÏßÄÎπÑÌä∏,
+	// Ï†ÑÏÜ° Îç∞Ïù¥ÌÑ∞ ÎπÑÌä∏ÏàòÎ•º ÏÑ§Ï†ïÌïúÎã§.
+	// ÎπÑÎèôÍ∏∞ Î∞©Ïãù, No Parity bit, 1 Stop bit, 8bits
 	UCSR0C |= (1 << UCSZ01);
 	UCSR0C |= (1 << UCSZ00);
-	/*
-	 // UBRRnH(L) ∑π¡ˆΩ∫≈Õ∏¶ ¿ÃøÎ«— º€ºˆΩ≈ ∫∏∑π¿Ã∆Æ º≥¡§
-	 UBRR0H = 0x00;
-	 switch (iBaudrate) {
-	 case 9600:
-	 UBRR0L = 95; // 14.7456 MHz -> 9600 bps
-	 break;
-	 case 19200:
-	 UBRR0L = 47; // 14.7456 MHz -> 19200 bps
-	 break;
-	 case 115200:
-	 UBRR0L = 7;  // 14.7456 MHz -> 115200 bps
-	 break;
-	 default:
-	 UBRR0L = 95;
-	 }
-	 */
-	UBRR0H = (BAUD_PRESCALE >> 8);
-	UBRR0L = BAUD_PRESCALE;
+
+	// See http://wormfood.net/avrbaudcalc.php
+	// UBRRnH(L) Î†àÏßÄÏä§ÌÑ∞Î•º Ïù¥Ïö©Ìïú ÏÜ°ÏàòÏã† Î≥¥Î†àÏù¥Ìä∏ ÏÑ§Ï†ï
+	UBRR0H = 0x00;
+	switch (iBaudrate) {
+	case 9600:
+		//UBRR0L = 95; // 14.7456 MHz -> 9600 bps
+		UBRR0L = 103; // 16 MHz -> 9600 bps
+		break;
+	case 19200:
+		//UBRR0L = 47; // 14.7456 MHz -> 19200 bps
+		UBRR0L = 51; // 16 MHz ->
+		break;
+	case 115200:
+		//UBRR0L = 7;  // 14.7456 MHz -> 115200 bps
+		UBRR0L = 8;  // 16 MHz -> 115200 bps
+		break;
+	default:
+		UBRR0L = 95;
+	}
+
+//	UBRR0H = (BAUD_PRESCALE >> 8);
+//	UBRR0L = BAUD_PRESCALE;
 }
 
 static FILE PrnDevice = FDEV_SETUP_STREAM(printfStr, NULL, _FDEV_SETUP_WRITE);
@@ -99,6 +103,7 @@ void InitADC() {
 
 uint16_t ReadADC(uint8_t ch) {
 	//Select ADC Channel ch must be 0-7
+	ADMUX &= 0xF0;
 	ADMUX |= (ch & 0x07);
 
 	//Start Single conversion
@@ -117,12 +122,14 @@ uint16_t ReadADC(uint8_t ch) {
 	return (ADC);
 }
 
+#define nChs 6
+
 int main(void) {
-	int temp;
-	float voltage;
+	int temp[nChs];
+	float voltage[nChs];
 
 	unsigned char text[] =
-	"\r\nWelcome! Serial communication world!!\r\n Good Luck\r\n";
+			"\r\nWelcome! Serial communication world!!\r\n Good Luck\r\n";
 
 	uart_init(9600UL);
 	stdout = &PrnDevice;
@@ -135,15 +142,13 @@ int main(void) {
 
 	while (1) {
 		PORTB = 0x00;
-		temp = ReadADC(0);
-
-		voltage = (temp / 1023.0) * 5.0;
-		//printf("Ch[0] = %d\r\n", temp);
-
-		printf("Ch[0] = %d, %3.2f\r\n", temp, voltage);
-		_delay_ms(100);
+		for (int loop = 0; loop < nChs; loop++) {
+			temp[loop] = ReadADC(loop);
+			voltage[loop] = (temp[loop] / 1023.0) * 5.0;
+			printf("Ch[%d] = %d, %3.2f[V]\r\n", loop, temp[loop], voltage[loop]);
+			_delay_ms(100);
+		}
 		PORTB = 0xFF;
 		_delay_ms(100);
 	}
 }
-
