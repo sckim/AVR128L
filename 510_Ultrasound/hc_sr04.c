@@ -88,7 +88,7 @@ int main(void) {
 
 		printf("Time: %d[usec]", duration );
 		distance = (duration / 58.0);
-		if (distance >= 200 || distance <= 2) {
+		if (distance >= 400 || distance <= 2) {
 			printf("\nOut of range\r\n");
 		} else {
 			printf(", Distance: %4.1f[cm]\n", distance);
