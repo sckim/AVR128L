@@ -65,7 +65,7 @@ int main(void) {
 		else if (bKey == 3)
 			PORTF = SEG[7];
 		else if (bKey == 4)
-			ORTF = SEG[10];  //A
+			PORTF = SEG[10];  //A
 
 		PORTD = 0xd0; // only bit 5 low, 0b1101
 		_delay_ms(20);
