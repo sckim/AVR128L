@@ -9,6 +9,9 @@
 
 #define LCD_Busy BIT7
 
+#define LCDControlDir	DDRC
+#define LCDDataDir		DDRB
+
 #define LCDControl		PORTC	//LCD control line
 #define	LCDData			PORTB	//LCD data line
 
@@ -112,10 +115,10 @@ void lcd_display() {
 	}
 }
 int main() {
-	LCDControl = 0xff;	// LCD Data port를 출력으로 설정
-	LCDData = 0xff;	// LCD 제어라인
+	LCDControlDir = 0xff;	// LCD Data port를 출력으로 설정
+	LCDDataDir = 0xff;	// LCD 제어라인
 
-	PORTC = 0x00;
+	LCDControl = 0x00;
 
 	lcd_init();
 	lcd_display();
