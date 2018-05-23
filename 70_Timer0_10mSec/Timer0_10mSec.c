@@ -13,7 +13,7 @@
 // x = time * (14745600/CS)
 #define cDelay 144
 
-unsigned char FND[10]= {0XC0, 0XF9, 0XA4, 0XB0, 0X99, 0X92, 0X82, 0XD8, 0X80, 0X90};
+unsigned char SEG[10]= {0XC0, 0XF9, 0XA4, 0XB0, 0X99, 0X92, 0X82, 0XD8, 0X80, 0X90};
 
 volatile int sec =0;
 volatile int msec =0;
@@ -24,13 +24,13 @@ ISR (TIMER0_OVF_vect)
 	if(msec == 100)	{
 		sec++;
 		msec = 0;
-		PORTE = FND[sec];
+		PORTE = SEG[sec];
 	}
 	if (sec==10) {
 		sec = 0;
+		PORTE = SEG[sec];
 	}
-
-	PORTF = FND[msec%10];
+	PORTF = SEG[msec%10];
 
 	TCNT0 = 0xFF-cDelay+1;    //초기값
 }
@@ -40,11 +40,10 @@ int main(void)
 	DDRE  = 0xFF;
 	DDRF  = 0xFF;
 
-	PORTF = FND[msec];
-	PORTF = FND[msec];
+	PORTE = SEG[sec];
+	PORTF = SEG[msec];
 	
 	cli();
-
 	TIMSK |= (1<<TOIE0);    // Timer0 오버플로 인터럽트 에이블
 	
 	// Normal, 1/1024 for 프리스케일
