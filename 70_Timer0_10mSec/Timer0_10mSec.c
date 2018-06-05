@@ -30,7 +30,7 @@ ISR (TIMER0_OVF_vect)
 		sec = 0;
 		PORTE = SEG[sec];
 	}
-	PORTF = SEG[msec%10];
+	PORTF = SEG[msec/10];
 
 	TCNT0 = 0xFF-cDelay+1;    //초기값
 }
