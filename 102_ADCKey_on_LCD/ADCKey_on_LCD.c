@@ -14,6 +14,10 @@
 #define strWelcome	"Welcome"
 #define strWelcome1	"Microcontroller"
 
+#define cMaxButton	13
+#define cRefVoltage	5.0
+#define	deltaV	(cRefVoltage / cMaxButton)
+
 volatile char str[16];
 float Index = 0;
 
@@ -25,10 +29,8 @@ void InitADC() {
 }
 
 uint16_t ReadADC(uint8_t ch) {
-	//Select ADC Channel ch must be 0-7
-	 ADMUX |= (ch & 0x07);
 	// Clear lower three bits and set them from chan
-	//ADMUX = (ADMUX & 0xF8) | (ch & 7);
+	ADMUX = (ADMUX & 0xF8) | (ch & 7);
 
 	//Start Single conversion
 	ADCSRA |= (1 << ADSC);
@@ -46,6 +48,22 @@ uint16_t ReadADC(uint8_t ch) {
 	return (ADC);
 }
 
+int ADCKey(int ch) {
+	float temp;
+	int i;
+
+	temp = ReadADC(ch) * (cRefVoltage / 1023.0);
+
+	for (i = cMaxButton - 1; i >= 0; i--) {
+		if (temp > i * deltaV + deltaV / 2)
+			break;
+	}
+	if( temp < deltaV/2)
+		i=-1;
+
+	return i+1;
+}
+
 int main(void) {
 	LCDinit();
 	LCDcursorOn();
@@ -57,11 +75,11 @@ int main(void) {
 
 	while (1) {
 		LCDGotoXY(0, 0);
-		sprintf((char *) str, "Index = %4.2f", 5.0 * ReadADC(0) / 1023.0);
+		sprintf((char *) str, "Voltage = %4.2f", 5.0 * ReadADC(1) / 1023.0);
 		LCDstring((uint8_t*) str, strlen((char *) str));
 
 		LCDGotoXY(0, 1);
-		sprintf((char *) str, "Index = %4.2f", 5.0 * ReadADC(1) / 1023.0);
+		sprintf((char *) str, "Key = %2X", ADCKey(1));
 		LCDstring((uint8_t*) str, strlen((char *) str));
 
 		_delay_ms(100);
