@@ -5,29 +5,29 @@
 * PORTn
 *************************************/
 
-// delay ÇÔ¼ö¸¦ ÀÌ¿ëÇÏ±â À§ÇØ¼­´Â ±âÁØ ½Ã°£ÀÌ ÇÊ¿äÇÏ¹Ç·Î
-// CPUÀÇ ¸ÞÀÎ Å¬·°¿¡ ´ëÇÑ Á¤º¸°¡ ÇÊ¿äÇÏ´Ù.
+// delay í•¨ìˆ˜ë¥¼ ì´ìš©í•˜ê¸° ìœ„í•´ì„œëŠ” ê¸°ì¤€ ì‹œê°„ì´ í•„ìš”í•˜ë¯€ë¡œ
+// CPUì˜ ë©”ì¸ í´ëŸ­ì— ëŒ€í•œ ì •ë³´ê°€ í•„ìš”í•˜ë‹¤.
 //
 // # warning "F_CPU not defined for <util/delay.h>"
 //
-// ¾Æ·¡¿Í °°Àº warningÀ» ¾ø¾Ö±â À§ÇØ¼­´Â ¼Ò½º Å©µå¿¡
-// F_CPU¸¦ ¼±¾ðÇØ ÁÖ°Å³ª, È¯°æ¼³Á¤¿¡¼­ ¼±¾ðÇØ ÁØ´Ù.
+// ì•„ëž˜ì™€ ê°™ì€ warningì„ ì—†ì• ê¸° ìœ„í•´ì„œëŠ” ì†ŒìŠ¤ í¬ë“œì—
+// F_CPUë¥¼ ì„ ì–¸í•´ ì£¼ê±°ë‚˜, í™˜ê²½ì„¤ì •ì—ì„œ ì„ ì–¸í•´ ì¤€ë‹¤.
 //#define F_CPU	14745600
 
 #include <avr/io.h>
 #include <util/delay.h>
 
 int main(void) {
-	//PORTBÀÇ ¸ðµç Æ÷ÅÍ¸¦ ¸ðµÎ Ãâ·ÂÀ¸·Î ¼³Á¤
+	//PORTBì˜ ëª¨ë“  í¬í„°ë¥¼ ëª¨ë‘ ì¶œë ¥ìœ¼ë¡œ ì„¤ì •
 	DDRB = 0xFF; 
 
 	while(1)	{
-		//PORTBÀÇ »óÀ§ 4ºñÆ®¿¡´Â 1À», ÇÏÀ§ 4ºñÆ®¿¡´Â 0À¸·Î ¼³Á¤
-		PORTB = 0xF0; 
-		//1ÃÊ°£ Áö¿¬
+		//PORTBì˜ ìƒìœ„ 4ë¹„íŠ¸ì—ëŠ” 1ì„, í•˜ìœ„ 4ë¹„íŠ¸ì—ëŠ” 0ìœ¼ë¡œ ì„¤ì •
+		PORTA = 0xF0; 
+		//1ì´ˆê°„ ì§€ì—°
 		_delay_ms(1000); 
 
-		PORTB = 0x0F;
+		PORTA = 0x0F;
 		_delay_ms(1000);
 	}
 }
