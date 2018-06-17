@@ -12,9 +12,7 @@ Microcontroller AVR128을 이용한 예제입니다.
 + AVR Studio 4.x
 + Eclipse for AVR
 ### 3주차: 범용 출력
-+ LED On
-+ LED On/Off
-+ MIDAS kit 이용법
++ [GPIO 출력](https://github.com/sckim/uC_examples/blob/master/10_Blink/Blink.c)
 ### 4주차: 범용 입력 
 + Push button
 + Debounce
