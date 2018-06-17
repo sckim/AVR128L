@@ -10,8 +10,12 @@ Microcontroller AVR128을 이용한 예제입니다.
 ### 1주차: 마이크로컨트롤러란? 
 
 ### 2주차: 개발환경구축
-+ AVR Studio 4.x
++ AVR Studio ([Ver 7](http://www.microchip.com/mplab/avr-support/atmel-studio-7), [Ver 4.19](https://www.dropbox.com/s/8r5c4nze87vfh6r/AvrStudio4Setup.exe?dl=0))
 + Eclipse for AVR
++ [AVRToolchain](https://www.dropbox.com/s/7j8wxu1b2sp6b6n/AVR-Toolchain_330710.exe?dl=0)
++ [WinAVR](https://sourceforge.net/projects/winavr/files/)
++ [Training Boar Kit](https://docs.google.com/document/d/1z8ZOeDaLLHn7CCoW8pkEYocl6X6kjT0bNDkCtDhy2is/edit#heading=h.ewk21ulbo3a9)
++ [필수프로그램](https://www.dropbox.com/s/invxn9zygupyc5h/Core.zip?dl=0)
 
 ### 3주차: 범용 입/출력
 + [GPIO 출력](https://github.com/sckim/uC_examples/blob/master/10_Blink/Blink.c), [회로도](https://github.com/sckim/uC_examples/blob/master/10_Blink/AVR128_LED_7Seg.DSN)
@@ -60,3 +64,4 @@ Microcontroller AVR128을 이용한 예제입니다.
 + AVR128.pdf ([Dropbox](https://www.dropbox.com/s/460vims4vl766m7/Atmega128L.pdf?dl=0), [Web](http://ww1.microchip.com/downloads/en/DeviceDoc/doc2467.pdf))
 + [BerkeleyX: EE40LX Electronic Interfaces](https://courses.edx.org/courses/course-v1:BerkeleyX+EE40LX+2T2015/info)
 + [AVR Programming Tutorial](http://ocw.mit.edu/courses/media-arts-and-sciences/mas-962-special-topics-new-textiles-spring-2010/readings-lectures-tutorials/tut06_avr1/)
++ [Atmega 128](https://docs.google.com/document/d/1DUKQ7cIUKSunolqK0z9ITNyI9KXj2wUplr7f02rLgaM/edit)
