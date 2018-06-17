@@ -40,9 +40,11 @@ Microcontroller AVR128을 이용한 예제입니다.
 ### 8주차: Timer
 + [Timer 0 Overflow 인터럽트 활용](https://github.com/sckim/uC_examples/blob/master/105_ADC_on_LCD_Timer/ADC_on_LCD_Timer.c)
 + [Timer 0 Ouput match 인터럽트 활용](https://github.com/sckim/uC_examples/blob/master/107_ADC_on_LCD_OCR/ADC_on_LCD_OCR.c)
++ Timer 2
 + [회로도](https://github.com/sckim/uC_examples/blob/master/101_ADC_on_LCD/ADC.DSN)
 
 ### 9주차: Timer (PWM)
++ Timer 1, 3
 
 ### 10주차: Serial communicate (UART)
 ### 11주차: SPI
@@ -55,5 +57,6 @@ Microcontroller AVR128을 이용한 예제입니다.
 
 ## 참고자료
 + 즐기면서 익히는 uC (자체자료)
++ AVR128.pdf ([Dropbox](https://www.dropbox.com/s/460vims4vl766m7/Atmega128L.pdf?dl=0), [Web](http://ww1.microchip.com/downloads/en/DeviceDoc/doc2467.pdf))
 + [BerkeleyX: EE40LX Electronic Interfaces](https://courses.edx.org/courses/course-v1:BerkeleyX+EE40LX+2T2015/info)
 + [AVR Programming Tutorial](http://ocw.mit.edu/courses/media-arts-and-sciences/mas-962-special-topics-new-textiles-spring-2010/readings-lectures-tutorials/tut06_avr1/)
