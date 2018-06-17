@@ -4,10 +4,9 @@ Microcontroller AVR128을 이용한 예제입니다.
 
 ## 강의 개요
 + 마이크로시스템설계
-+ Email: 
++ Email: sckim@hknu.ac.kr
 
 ## 강의 구성 
-
 ### 1주차: 마이크로컨트롤러란? 
 ### 2주차: 개발환경구축
 + AVR Studio 4.x
