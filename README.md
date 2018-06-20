@@ -64,4 +64,4 @@ Microcontroller AVR128을 이용한 예제입니다.
 + AVR128.pdf ([Dropbox](https://www.dropbox.com/s/460vims4vl766m7/Atmega128L.pdf?dl=0), [Web](http://ww1.microchip.com/downloads/en/DeviceDoc/doc2467.pdf))
 + [BerkeleyX: EE40LX Electronic Interfaces](https://courses.edx.org/courses/course-v1:BerkeleyX+EE40LX+2T2015/info)
 + [AVR Programming Tutorial](http://ocw.mit.edu/courses/media-arts-and-sciences/mas-962-special-topics-new-textiles-spring-2010/readings-lectures-tutorials/tut06_avr1/)
-+ [Atmega 128](https://docs.google.com/document/d/1DUKQ7cIUKSunolqK0z9ITNyI9KXj2wUplr7f02rLgaM/edit)
++ [Atmega 128 레지스터](https://docs.google.com/document/d/1DUKQ7cIUKSunolqK0z9ITNyI9KXj2wUplr7f02rLgaM/edit)
