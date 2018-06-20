@@ -33,27 +33,27 @@ Microcontroller AVR128을 이용한 예제입니다.
 + [7Segments 사용하기](https://github.com/sckim/uC_examples/blob/master/14_7Segments/16_7Segments.c), [회로도](https://github.com/sckim/uC_examples/blob/master/10_Blink/AVR128_LED_7Seg.DSN)
 + [4개의 7Segments 사용하기](https://github.com/sckim/uC_examples/blob/master/48_Four7Segments_itoa/Four7Segments.c), [회로도](https://github.com/sckim/uC_examples/blob/master/48_Four7Segments_itoa/Four7Segments.DSN)
 
-### 6주차: 디스플레이장치 (LCD) 
+### 7주차: 디스플레이장치 (LCD) 
 + [Text LCD 사용하기](https://github.com/sckim/uC_examples/blob/master/62_textLCD/textLCD.c)
 + [LCD 함수 이용해서 제어](https://github.com/sckim/uC_examples/blob/master/68_textLCDLib/textLCDLib.c), [회로도](https://github.com/sckim/uC_examples/blob/master/68_textLCDLib/textLCDLib.DSN), [lcd_lib.c](https://github.com/sckim/uC_examples/blob/master/68_textLCDLib/lcd_lib.c), [lcd_lib.h](https://github.com/sckim/uC_examples/blob/master/68_textLCDLib/lcd_lib.h)
 
-### 7주차: Analog to Digital 
+### 8주차: Analog to Digital 
 + [ADC 값을 부동소수점으로 출력하기](https://github.com/sckim/uC_examples/blob/master/101_ADC_on_LCD/ADC_on_LCD.c), [회로도](https://github.com/sckim/uC_examples/blob/master/101_ADC_on_LCD/ADC.DSN)
 
-### 8주차: Timer
+### 9주차: Timer
 + [Timer 0 Overflow 인터럽트 활용](https://github.com/sckim/uC_examples/blob/master/105_ADC_on_LCD_Timer/ADC_on_LCD_Timer.c)
 + [Timer 0 Ouput match 인터럽트 활용](https://github.com/sckim/uC_examples/blob/master/107_ADC_on_LCD_OCR/ADC_on_LCD_OCR.c)
 + Timer 2
 + [회로도](https://github.com/sckim/uC_examples/blob/master/101_ADC_on_LCD/ADC.DSN)
 
-### 9주차: Timer (PWM)
+### 10주차: Timer (PWM)
 + Timer 1, 3
 
-### 10주차: Serial communicate (UART)
-### 11주차: SPI
-### 12주차: I2C
-### 13주차: 디스플레이장치 (Graphic LCD) 
-### 14주차: WatchDog
+### 11주차: Serial communicate (UART)
+### 12주차: SPI
+### 13주차: I2C
+### 14주차: 디스플레이장치 (Graphic LCD) 
+### 15주차: WatchDog
 
 ### 16주차: 키트 직접 만들어보기
 + 부트로더
