@@ -24,7 +24,6 @@ Microcontroller AVR128을 이용한 예제입니다.
 
 ### 4주차: 범용 입력 
 + [4x3 Keypad 입력](https://github.com/sckim/uC_examples/blob/master/25_Keypad/Keypad.c), [회로도](https://github.com/sckim/uC_examples/blob/master/25_Keypad/Keypad.DSN)
-+ Debounce
 
 ### 5주차: 외부 인터럽트 
 + [Interrupter를 사용한 버튼 입력](https://github.com/sckim/uC_examples/blob/master/27_Interrupt/Interrupt.c)
