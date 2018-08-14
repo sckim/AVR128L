@@ -14,7 +14,7 @@ Microcontroller AVR128을 이용한 예제입니다.
 + Eclipse for AVR
 + [AVRToolchain](https://www.dropbox.com/s/7j8wxu1b2sp6b6n/AVR-Toolchain_330710.exe?dl=0)
 + [WinAVR](https://sourceforge.net/projects/winavr/files/)
-+ [Training Boar Kit](https://docs.google.com/document/d/1z8ZOeDaLLHn7CCoW8pkEYocl6X6kjT0bNDkCtDhy2is/edit#heading=h.ewk21ulbo3a9)
++ [Training Boar Kit](https://docs.google.com/document/d/1z8ZOeDaLLHn7CCoW8pkEYocl6X6kjT0bNDkCtDhy2is/edit#heading=h.ewk21ulbo3a9) - 학교에 있는 
 + [필수프로그램](https://www.dropbox.com/s/invxn9zygupyc5h/Core.zip?dl=0) - AVRStudio4.19, AVR-Toolchain, WinAVR, msys-1.0.dll을 한꺼번에 받을 수 있습니다.
 
 ### 3주차: 범용 입/출력
