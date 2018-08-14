@@ -15,7 +15,7 @@ Microcontroller AVR128을 이용한 예제입니다.
 + [AVRToolchain](https://www.dropbox.com/s/7j8wxu1b2sp6b6n/AVR-Toolchain_330710.exe?dl=0)
 + [WinAVR](https://sourceforge.net/projects/winavr/files/)
 + [Training Boar Kit](https://docs.google.com/document/d/1z8ZOeDaLLHn7CCoW8pkEYocl6X6kjT0bNDkCtDhy2is/edit#heading=h.ewk21ulbo3a9)
-+ [필수프로그램](https://www.dropbox.com/s/invxn9zygupyc5h/Core.zip?dl=0)
++ [필수프로그램](https://www.dropbox.com/s/invxn9zygupyc5h/Core.zip?dl=0) - AVRStudio4.19, AVR-Toolchain, WinAVR, msys-1.0.dll
 
 ### 3주차: 범용 입/출력
 + [GPIO 출력](https://github.com/sckim/uC_examples/blob/master/10_Blink/Blink.c), [회로도](https://github.com/sckim/uC_examples/blob/master/10_Blink/AVR128_LED_7Seg.DSN)
