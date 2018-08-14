@@ -10,12 +10,12 @@ Microcontroller AVR128을 이용한 예제입니다.
 ### 1주차: 마이크로컨트롤러란? 
 
 ### 2주차: 개발환경구축
-+ AVR Studio ([Ver 7](http://www.microchip.com/mplab/avr-support/atmel-studio-7), [Ver 4.19](https://www.dropbox.com/s/8r5c4nze87vfh6r/AvrStudio4Setup.exe?dl=0))
++ AVR Studio ([Ver 7](http://www.microchip.com/mplab/avr-support/atmel-studio-7), [Ver 4.19](https://www.dropbox.com/s/3c2vubam8lwj42c/AvrStudio4Setup.exe?dl=0))
 + Eclipse for AVR
 + [AVRToolchain](https://www.dropbox.com/s/7j8wxu1b2sp6b6n/AVR-Toolchain_330710.exe?dl=0)
 + [WinAVR](https://sourceforge.net/projects/winavr/files/)
 + [Training Boar Kit](https://docs.google.com/document/d/1z8ZOeDaLLHn7CCoW8pkEYocl6X6kjT0bNDkCtDhy2is/edit#heading=h.ewk21ulbo3a9)
-+ [필수프로그램](https://www.dropbox.com/s/invxn9zygupyc5h/Core.zip?dl=0) - AVRStudio4.19, AVR-Toolchain, WinAVR, msys-1.0.dll
++ [필수프로그램](https://www.dropbox.com/s/invxn9zygupyc5h/Core.zip?dl=0) - AVRStudio4.19, AVR-Toolchain, WinAVR, msys-1.0.dll을 한꺼번에 받을 수 있습니다.
 
 ### 3주차: 범용 입/출력
 + [GPIO 출력](https://github.com/sckim/uC_examples/blob/master/10_Blink/Blink.c), [회로도](https://github.com/sckim/uC_examples/blob/master/10_Blink/AVR128_LED_7Seg.DSN)
